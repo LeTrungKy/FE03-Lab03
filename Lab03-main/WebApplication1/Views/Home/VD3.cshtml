@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <script language="JavaScript">
+        function Homnay(){
+            var d =new Date()
+            var month = d.getUTCMonth() + 1;
+            var year = d.getFullYear();
+            alert("Hom nay la ngay " + d.getDate() + "thang " + month +"nam" + year );
+        }
+    </script>
+</head>
+<body>
+    <form name="form1">
+        <input type="button" value="Ngay hom nay" onclick="Homnay();"/>
+    </form>
+</body>
+</html>

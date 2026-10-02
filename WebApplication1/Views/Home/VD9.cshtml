@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Stopwatch</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .wrapper {
+            background: orange;
+            color: white;
+            text-align: center;
+            padding: 20px 0 40px;
+        }
+        .wrapper h1 {
+            font-weight: normal;
+            text-transform: uppercase;
+            font-size: 48px;
+            margin: 10px 0;
+        }
+        .wrapper p {
+            font-size: 32px;
+            margin: 20px 0 30px;
+        }
+        .wrapper button {
+            width: 170px;
+            height: 55px;
+            margin: 0 8px;
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+            border-radius: 4px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .wrapper button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Stopwatch</h1>
+        <p><span id="seconds">00</span>:<span id="tens">00</span></p>
+        <button id="button-start">Start</button>
+        <button id="button-stop">Stop</button>
+        <button id="button-reset">Reset</button>
+    </div>
+
+    <script language="Javascript">
+        window.onload = function () {
+            var seconds = 0;
+            var tens = 0;
+            var appendTens = document.getElementById("tens");
+            var appendSeconds = document.getElementById("seconds");
+            var buttonStart = document.getElementById('button-start');
+            var buttonStop = document.getElementById('button-stop');
+            var buttonReset = document.getElementById('button-reset');
+            var Interval;
+
+            function pad(n) {
+                return n < 10 ? "0" + n : "" + n;
+            }
+
+            function hienThi() {
+                appendTens.innerHTML = pad(tens);
+                appendSeconds.innerHTML = pad(seconds);
+            }
+
+            function startTimer() {
+                tens++;
+                if (tens > 99) {
+                    seconds++;
+                    tens = 0;
+                }
+                hienThi();
+            }
+
+            buttonStart.onclick = function () {
+                clearInterval(Interval);
+                Interval = setInterval(startTimer, 10);
+            };
+
+            buttonStop.onclick = function () {
+                clearInterval(Interval);
+            };
+
+            buttonReset.onclick = function () {
+                clearInterval(Interval);
+                tens = 0;
+                seconds = 0;
+                hienThi();
+            };
+        };
+    </script>
+</body>
+</html>

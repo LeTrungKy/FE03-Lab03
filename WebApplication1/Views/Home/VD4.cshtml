@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <script language="JavaScript">
+        function TinhTien()
+        {
+            var dg = parseFloat(document.getElementById("dg").value);
+            var sl = parseFloat(document.getElementById("sl").value);
+            window.document.getElementById("tt").value = dg * sl;
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Nhap so luong va don hang</h2>
+    <form>
+        Don gia: <input type="number" id="dg" name="dongia"
+                        onkeyup="TinhTien();"
+                        onchange="TinhTien();" />
+        So luong: <input type="number" id="sl" name="soluong" min="1" max="100"
+            onkeyup="TinhTien();"
+            onchange="TinhTien();"/>
+
+        Thanh tien: <input type="text" id="tt" name="tien"/>
+    </form>
+</body>
+</html>
